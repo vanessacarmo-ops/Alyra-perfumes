@@ -167,7 +167,7 @@ function filterProducts(cat,btn){
 }
 function contact(name){
  const msg=encodeURIComponent("Olá! Gostaria de consultar o preço do produto: "+name);
- window.open("https://wa.me/5541997138077?text="+msg,"_blank");
+ window.open("https://api.whatsapp.com/send?phone=5541997138077&text="+msg,"_blank");
 }
 render();
 </script>
