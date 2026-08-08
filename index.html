@@ -171,5 +171,117 @@ function contact(name){
 }
 render();
 </script>
+  <script>
+const numeroWhatsApp = "5541997138077";
+let carrinhoAlyrah = JSON.parse(localStorage.getItem("carrinhoAlyrah") || "[]");
+
+function salvarCarrinhoAlyrah() {
+  localStorage.setItem("carrinhoAlyrah", JSON.stringify(carrinhoAlyrah));
+  atualizarBotaoCarrinhoAlyrah();
+}
+
+function atualizarBotaoCarrinhoAlyrah() {
+  const quantidade = carrinhoAlyrah.reduce(
+    (total, produto) => total + produto.quantidade, 0
+  );
+
+  document.querySelectorAll("a, button, div").forEach(elemento => {
+    if (elemento.textContent.trim().match(/^🛒?\s*Carrinho\s*\(/i)) {
+      elemento.textContent = "🛒 Carrinho (" + quantidade + ")";
+      elemento.style.cursor = "pointer";
+      elemento.onclick = abrirCarrinhoAlyrah;
+    }
+  });
+}
+
+function adicionarProdutoAlyrah(nome) {
+  const produto = carrinhoAlyrah.find(p => p.nome === nome);
+
+  if (produto) {
+    produto.quantidade++;
+  } else {
+    carrinhoAlyrah.push({
+      nome: nome,
+      quantidade: 1
+    });
+  }
+
+  salvarCarrinhoAlyrah();
+
+  alert("✅ " + nome + " foi adicionado ao carrinho!");
+}
+
+function abrirCarrinhoAlyrah() {
+  if (carrinhoAlyrah.length === 0) {
+    alert("🛒 Seu carrinho está vazio.");
+    return;
+  }
+
+  let mensagem = "Olá! Gostaria de fazer um pedido na ALYRAH PERFUMES.%0A%0A";
+
+  carrinhoAlyrah.forEach(produto => {
+    mensagem += "• " + produto.nome +
+      " — " + produto.quantidade + " unidade(s)%0A";
+  });
+
+  mensagem +=
+    "%0AGostaria de saber o valor e a disponibilidade dos produtos.";
+
+  window.open(
+    "https://wa.me/" + numeroWhatsApp + "?text=" + mensagem,
+    "_blank"
+  );
+}
+
+document.addEventListener("click", function(event) {
+
+  const elemento = event.target.closest("button, a");
+
+  if (!elemento) return;
+
+  const texto = elemento.textContent.trim();
+
+  if (/^🛒?\s*Carrinho\s*\(/i.test(texto)) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    abrirCarrinhoAlyrah();
+    return;
+  }
+
+  if (
+    texto.toUpperCase().includes("CONSULTAR PREÇO") ||
+    texto.toUpperCase() === "COMPRAR"
+  ) {
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    const card =
+      elemento.closest("article") ||
+      elemento.closest(".card") ||
+      elemento.parentElement;
+
+    let nome = "Produto ALYRAH PERFUMES";
+
+    if (card) {
+      const titulo =
+        card.querySelector("h3") ||
+        card.querySelector("h2") ||
+        card.querySelector("h4");
+
+      if (titulo) {
+        nome = titulo.textContent.trim();
+      }
+    }
+
+    adicionarProdutoAlyrah(nome);
+  }
+
+}, true);
+
+document.addEventListener("DOMContentLoaded", function() {
+  atualizarBotaoCarrinhoAlyrah();
+});
+</script>
 </body>
 </html>
