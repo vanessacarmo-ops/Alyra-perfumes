@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALYRAH PERFUMES | Perfumes Árabes Originais</title>
+<meta name="description" content="Perfumes árabes originais femininos, masculinos e unissex.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0b;color:#f5f0e8}
+header{background:#090909;border-bottom:1px solid #9c7b32;position:sticky;top:0;z-index:10}
+.nav{max-width:1150px;margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:Georgia,serif;font-size:25px;letter-spacing:3px;color:#d7b45a}.tag{font-size:11px;color:#aaa;letter-spacing:2px}
+nav a{color:#eee;text-decoration:none;margin-left:20px;font-size:14px}.cart{border:1px solid #d7b45a;padding:9px 13px;border-radius:20px}
+.hero{min-height:520px;display:flex;align-items:center;background:radial-gradient(circle at 70% 40%,#4d3a16 0,#19140b 28%,#0b0b0b 65%);padding:60px 20px}
+.hero-inner{max-width:1150px;width:100%;margin:auto}.eyebrow{color:#d7b45a;letter-spacing:4px;font-size:12px}.hero h1{font-family:Georgia,serif;font-size:clamp(42px,7vw,76px);font-weight:normal;max-width:700px;margin:15px 0}.hero p{max-width:570px;color:#c7c1b8;line-height:1.7}.btn{display:inline-block;background:#d7b45a;color:#111;text-decoration:none;border:0;padding:14px 24px;border-radius:4px;font-weight:bold;cursor:pointer;margin-top:14px}
+section{max-width:1150px;margin:auto;padding:65px 20px}.title{text-align:center;font-family:Georgia,serif;font-size:35px;font-weight:normal;margin:0 0 10px}.subtitle{text-align:center;color:#999;margin-bottom:35px}
+.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px}.filter{background:#161616;color:#ddd;border:1px solid #333;padding:9px 15px;border-radius:20px;cursor:pointer}.filter.active{border-color:#d7b45a;color:#d7b45a}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#141414;border:1px solid #252525;border-radius:8px;overflow:hidden}.pic{height:260px;background:linear-gradient(135deg,#272016,#0d0d0d);display:flex;align-items:center;justify-content:center;color:#d7b45a;font-family:Georgia,serif;font-size:20px;text-align:center;padding:20px}.info{padding:18px}.brand{font-size:11px;color:#d7b45a;letter-spacing:1.5px}.name{font-family:Georgia,serif;font-size:20px;margin:7px 0}.notes{font-size:12px;color:#999;line-height:1.5;min-height:36px}.price{font-size:20px;font-weight:bold;margin-top:14px}.buy{width:100%;margin-top:12px}
+.about{background:#111;border-top:1px solid #222;border-bottom:1px solid #222}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}.benefit{padding:25px;border:1px solid #282828}.benefit strong{display:block;color:#d7b45a;margin-bottom:8px}
+footer{padding:40px 20px;text-align:center;color:#888;font-size:13px}.gold{color:#d7b45a}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:20;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.box{background:#151515;border:1px solid #9c7b32;max-width:520px;width:100%;padding:25px;border-radius:8px}.box input,.box select{width:100%;padding:12px;margin:7px 0;background:#0c0c0c;border:1px solid #333;color:white;border-radius:4px}.close{float:right;background:none;border:0;color:#aaa;font-size:25px;cursor:pointer}.empty{color:#aaa;text-align:center;padding:20px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}nav a{display:none}.benefits{grid-template-columns:1fr}.hero{min-height:470px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.pic{height:230px}.nav{padding:15px}.hero h1{font-size:45px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<div><div class="logo">ALYRAH</div><div class="tag">PERFUMES</div></div>
+<nav><a href="#produtos">Produtos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a><a class="cart" href="#" onclick="openCart();return false">🛒 Carrinho (<span id="count">0</span>)</a></nav>
+</div></header>
+
+<main>
+<div class="hero"><div class="hero-inner">
+<div class="eyebrow">PERFUMES ÁRABES ORIGINAIS</div>
+<h1>Uma fragrância inesquecível deixa sua marca.</h1>
+<p>Descubra perfumes árabes marcantes, sofisticados e autênticos para mulheres e homens que gostam de presença.</p>
+<a class="btn" href="#produtos">EXPLORAR PERFUMES</a>
+</div></div>
+
+<section id="produtos">
+<h2 class="title">Nossa coleção</h2><p class="subtitle">Escolha sua próxima fragrância</p>
+<div class="filters">
+<button class="filter active" onclick="filterProducts('Todos',this)">Todos</button>
+<button class="filter" onclick="filterProducts('Feminino',this)">Femininos</button>
+<button class="filter" onclick="filterProducts('Masculino',this)">Masculinos</button>
+<button class="filter" onclick="filterProducts('Unissex',this)">Unissex</button>
+</div>
+<div class="grid" id="grid"></div>
+</section>
+
+<div class="about"><section id="sobre">
+<h2 class="title">Por que ALYRAH?</h2><p class="subtitle">Elegância em cada detalhe</p>
+<div class="benefits"><div class="benefit">✦<strong>Produtos originais</strong>Trabalhe somente com perfumes de procedência comprovada.</div><div class="benefit">✦<strong>Compra segura</strong>Estrutura preparada para integração com Pix e cartão.</div><div class="benefit">✦<strong>Atendimento</strong>Suporte rápido para ajudar você a escolher sua fragrância.</div></div>
+</section></div>
+</main>
+
+<footer id="contato">© 2026 <span class="gold">ALYRAH PERFUMES</span> — Perfumes Árabes Originais<br><br>Instagram: @alyrahperfumes · WhatsApp: (41) 99999-9999</footer>
+
+<div class="modal" id="cartModal"><div class="box">
+<button class="close" onclick="closeCart()">×</button><h2>Seu carrinho</h2><div id="cartItems"></div><div id="total" style="font-size:20px;margin:15px 0"></div>
+<button class="btn" style="width:100%" onclick="checkout()">IR PARA PAGAMENTO</button>
+</div></div>
+
+<script>
+const products=[
+{id:1,brand:"LATTAFA",name:"Yara",cat:"Feminino",price:229.90,notes:"Baunilha, frutas e flores. Doce e envolvente."},
+{id:2,brand:"LATTAFA",name:"Asad",cat:"Masculino",price:249.90,notes:"Especiarias, âmbar e notas amadeiradas."},
+{id:3,brand:"AFNAN",name:"9PM",cat:"Masculino",price:299.90,notes:"Aromático, adocicado e marcante."},
+{id:4,brand:"LATTAFA",name:"Khamrah",cat:"Unissex",price:329.90,notes:"Canela, tâmaras, baunilha e madeiras."},
+{id:5,brand:"MAISON ALHAMBRA",name:"Delilah",cat:"Feminino",price:219.90,notes:"Floral elegante, delicado e sofisticado."},
+{id:6,brand:"LATTAFA",name:"Fakhar Black",cat:"Masculino",price:239.90,notes:"Aromático, fresco e amadeirado."},
+{id:7,brand:"AL HARAMAIN",name:"Amber Oud Gold",cat:"Unissex",price:399.90,notes:"Âmbar, frutas e baunilha, com grande presença."},
+{id:8,brand:"ARMAF",name:"Club de Nuit Woman",cat:"Feminino",price:279.90,notes:"Floral frutado, elegante e sofisticado."}
+];
+let cart=[];
+function money(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}
+function render(list=products){document.getElementById('grid').innerHTML=list.map(p=>`<article class="card"><div class="pic">${p.brand}<br>${p.name}</div><div class="info"><div class="brand">${p.brand} · ${p.cat}</div><div class="name">${p.name}</div><div class="notes">${p.notes}</div><div class="price">${money(p.price)}</div><button class="btn buy" onclick="add(${p.id})">COMPRAR</button></div></article>`).join('')}
+function filterProducts(cat,el){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));el.classList.add('active');render(cat==='Todos'?products:products.filter(p=>p.cat===cat))}
+function add(id){cart.push(products.find(p=>p.id===id));update();alert('Produto adicionado ao carrinho!')}
+function update(){document.getElementById('count').textContent=cart.length}
+function openCart(){renderCart();document.getElementById('cartModal').classList.add('show')}
+function closeCart(){document.getElementById('cartModal').classList.remove('show')}
+function renderCart(){let el=document.getElementById('cartItems');if(!cart.length){el.innerHTML='<div class="empty">Seu carrinho está vazio.</div>';document.getElementById('total').textContent='';return}el.innerHTML=cart.map((p,i)=>`<div style="display:flex;justify-content:space-between;border-bottom:1px solid #333;padding:10px 0"><span>${p.name}</span><span>${money(p.price)} <button onclick="removeItem(${i})" style="background:none;border:0;color:#d7b45a">×</button></span></div>`).join('');document.getElementById('total').textContent='Total: '+money(cart.reduce((a,p)=>a+p.price,0))}
+function removeItem(i){cart.splice(i,1);update();renderCart()}
+function checkout(){if(!cart.length){alert('Adicione um produto ao carrinho.');return}alert('Checkout demonstrativo. Para receber pagamentos reais, conecte um gateway (Pix/cartão) e configure domínio, frete e dados da empresa antes de publicar.')}
+render();
+</script>
+</body></html>
