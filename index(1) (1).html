@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALYRAH PERFUMES | Perfumes Árabes</title>
+<meta name="description" content="ALYRAH PERFUMES — perfumes árabes, kits e hidratantes.">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#080808;color:#f5eee7}
+header{background:#090909;border-bottom:1px solid #8d6931;position:sticky;top:0;z-index:20}
+.header-inner{max-width:1150px;margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:Georgia,serif;color:#d7a94d;font-size:25px;letter-spacing:3px;font-weight:bold}
+.logo small{display:block;font-family:Arial,sans-serif;color:#fff;font-size:11px;letter-spacing:2px;text-align:center}
+nav{display:flex;gap:18px;align-items:center}
+nav a{color:#eee;text-decoration:none;font-size:14px}
+.cart{border:1px solid #8d6931;border-radius:22px;padding:9px 14px}
+.hero{min-height:470px;display:flex;align-items:center;background:radial-gradient(circle at 75% 35%,#49321e 0,#19120d 22%,#080808 58%);border-bottom:1px solid #241c15}
+.hero-inner{max-width:1150px;width:100%;margin:auto;padding:70px 20px}
+.kicker{color:#d7a94d;letter-spacing:4px;font-size:13px;font-weight:bold}
+.hero h1{font-family:Georgia,serif;font-weight:normal;font-size:clamp(42px,6vw,70px);line-height:1.05;max-width:760px;margin:18px 0}
+.hero p{max-width:650px;color:#cfc4bb;line-height:1.7}
+.btn{display:inline-block;background:#e5b64f;color:#17100b;text-decoration:none;border:0;border-radius:7px;padding:14px 22px;font-weight:bold;margin-top:12px;cursor:pointer}
+section{max-width:1150px;margin:auto;padding:60px 20px}
+.title{text-align:center;font-family:Georgia,serif;font-size:36px;margin:0 0 10px}
+.subtitle{text-align:center;color:#9f958e;margin:0 0 28px}
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.filters button{background:#111;border:1px solid #493a2d;color:#eee;border-radius:22px;padding:10px 16px;cursor:pointer}
+.filters button.active,.filters button:hover{background:#d7a94d;color:#17100b;border-color:#d7a94d}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#141414;border:1px solid #292929;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-height:330px}
+.pic{height:180px;background:radial-gradient(circle,#3a2b1e,#141414 65%);display:flex;align-items:center;justify-content:center;color:#d7a94d;font-family:Georgia,serif;font-size:22px;text-align:center;padding:15px}
+.card-body{padding:17px;display:flex;flex-direction:column;flex:1}
+.brand{font-size:12px;color:#d7a94d;text-transform:uppercase;letter-spacing:1px}
+.card h3{font-family:Georgia,serif;font-size:20px;margin:7px 0}
+.meta{color:#9f958e;font-size:13px;line-height:1.5}
+.price{margin-top:auto;padding-top:15px;font-size:17px;font-weight:bold;color:#f5eee7}
+.card button{margin-top:12px;width:100%;padding:11px;border:0;border-radius:6px;background:#e5b64f;color:#17100b;font-weight:bold;cursor:pointer}
+.empty{text-align:center;color:#aaa;padding:30px}
+.about{background:#111;max-width:none;border-top:1px solid #222;border-bottom:1px solid #222}
+.about-inner{max-width:900px;margin:auto;text-align:center}
+footer{text-align:center;padding:35px 20px;color:#888;background:#080808}
+.whatsapp{position:fixed;right:18px;bottom:18px;background:#25d366;color:white;text-decoration:none;padding:13px 17px;border-radius:28px;font-weight:bold;z-index:30;box-shadow:0 4px 15px #0008}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.header-inner{flex-direction:column}.hero{min-height:400px}.grid{grid-template-columns:1fr}.hero h1{font-size:43px}nav{flex-wrap:wrap;justify-content:center}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">ALYRAH<small>PERFUMES</small></div>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a class="cart" href="#produtos">🛒 Carrinho (<span id="cartCount">0</span>)</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="kicker">PERFUMES ÁRABES ORIGINAIS</div>
+    <h1>Uma fragrância inesquecível deixa sua marca.</h1>
+    <p>Descubra perfumes árabes marcantes, sofisticados e autênticos para mulheres e homens que gostam de presença.</p>
+    <a class="btn" href="#produtos">EXPLORAR PERFUMES</a>
+  </div>
+</div>
+
+<section id="produtos">
+  <h2 class="title">Nossa coleção</h2>
+  <p class="subtitle">Escolha sua próxima fragrância</p>
+  <div class="filters">
+    <button class="active" onclick="filterProducts('todos',this)">Todos</button>
+    <button onclick="filterProducts('feminino',this)">Femininos</button>
+    <button onclick="filterProducts('masculino',this)">Masculinos</button>
+    <button onclick="filterProducts('unissex',this)">Unissex</button>
+    <button onclick="filterProducts('kits',this)">Kits</button>
+    <button onclick="filterProducts('hidratantes',this)">Hidratantes</button>
+  </div>
+  <div id="products" class="grid"></div>
+</section>
+
+<div class="about" id="sobre">
+  <section class="about-inner">
+    <h2 class="title">Sobre a ALYRAH</h2>
+    <p class="subtitle">Perfumes árabes para marcar presença, com uma seleção especial de fragrâncias, kits e cuidados corporais.</p>
+  </section>
+</div>
+
+<section id="contato">
+  <h2 class="title">Fale conosco</h2>
+  <p class="subtitle">Consulte preços e disponibilidade pelo WhatsApp.</p>
+  <div style="text-align:center"><a class="btn" href="https://wa.me/?text=Olá!%20Quero%20saber%20os%20preços%20dos%20produtos%20da%20ALYRAH%20PERFUMES" target="_blank">FALAR NO WHATSAPP</a></div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/?text=Olá!%20Quero%20saber%20o%20preço%20de%20um%20produto%20da%20ALYRAH%20PERFUMES" target="_blank">WhatsApp</a>
+
+<footer>© 2026 ALYRAH PERFUMES</footer>
+
+<script>
+const products=[
+["Vanilla Voyage","Maison","100 ml","unissex"],
+["Queen of Arabia","Lattafa","100 ml","feminino"],
+["French Avenue Veneno Bianco","Fragrance World","100 ml","unissex"],
+["Azm","Paris Corner","100 ml","unissex"],
+["Marshmallow Blush","Paris Corner","100 ml","feminino"],
+["Club de Nuit Maleka","Armaf","100 ml","feminino"],
+["Victoria","Lattafa","100 ml","feminino"],
+["Yara Elixir","Lattafa","100 ml","feminino"],
+["Tharwah Gold Eau de Parfum","Lattafa","100 ml","feminino"],
+["Sabah Al Ward — Garden of Eden","Al Wataniah","100 ml","feminino"],
+["Sabah Al Ward","Al Wataniah","100 ml","feminino"],
+["Sabah Al Ward Delilah","Al Wataniah","100 ml","feminino"],
+["Orientica Royal Amber","Orientica","80 ml","unissex"],
+["Dania Extrait de Parfum — Luxury Collection Exclusive","Orientica","80 ml","feminino"],
+["Musamam White Intense","Lattafa","100 ml","unissex"],
+["Club de Nuit Woman","Armaf","105 ml","feminino"],
+["Bade'e Al Oud Honor & Glory","Lattafa","100 ml","unissex"],
+["Bade'e Al Oud Amethyst","Lattafa","100 ml","unissex"],
+["Bade'e Al Oud Oud for Glory","Lattafa","100 ml","unissex"],
+["Asad Elixir","Lattafa","100 ml","masculino"],
+["Club de Nuit Intense Man","Armaf","100 ml","masculino"],
+["Ameerati","Al Wataniah","100 ml","feminino"],
+["Ameerat Al Arab Prive Rose","Asdaaf","100 ml","feminino"],
+["Special Oud","Al Wataniah","100 ml","unissex"],
+["Al Noble Wazeer","Lattafa","100 ml","unissex"],
+["Al Noble Safeer","Lattafa","100 ml","unissex"],
+["Al Noble Ameer","Lattafa","100 ml","unissex"],
+["Atheeri","Lattafa","100 ml","feminino"],
+["Yara","Lattafa","100 ml","feminino"],
+["Afeef","Lattafa","100 ml","unissex"],
+["Asad Bourbon","Lattafa","100 ml","masculino"],
+["Asad","Lattafa","100 ml","masculino"],
+["Eclaire Eau de Parfum","Lattafa","100 ml","feminino"],
+["Durrat Al Aroos","Al Wataniah","85 ml","feminino"],
+["Dalal","Lattafa","100 ml","feminino"],
+["Kit Club de Nuit Intense Man","Armaf","3 × 30 ml","kits"],
+["Kit Lattafa Yara Collection","Lattafa","4 × 25 ml","kits"],
+["Kit Lattafa Bade'e Al Oud Collection","Lattafa","4 × 25 ml","kits"],
+["Kit Lattafa Asad Zanzibar Limited Edition","Lattafa","4 × 25 ml","kits"],
+["Yara Elixir — Creme Hidratante Corporal","Isabelle La Belle","200 ml","hidratantes"],
+["Atheeri — Creme Hidratante Corporal","Isabelle La Belle","200 g","hidratantes"],
+["Sabah Al Ward — Hidratante Corporal","Isabelle La Belle","200 g","hidratantes"]
+];
+
+function render(filter="todos"){
+ const box=document.getElementById("products");
+ const list=filter==="todos"?products:products.filter(p=>p[3]===filter);
+ box.innerHTML=list.map(p=>`
+ <article class="card">
+  <div class="pic">${p[1]}<br>${p[0]}</div>
+  <div class="card-body">
+   <div class="brand">${p[1]} · ${p[3]}</div>
+   <h3>${p[0]}</h3>
+   <div class="meta"><strong>Tamanho:</strong> ${p[2]}</div>
+   <div class="price">Preço: a definir</div>
+   <button onclick="contact('${p[0].replace(/'/g,"\\'")}')">CONSULTAR PREÇO</button>
+  </div>
+ </article>`).join("");
+}
+function filterProducts(cat,btn){
+ document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active"); render(cat);
+}
+function contact(name){
+ const msg=encodeURIComponent("Olá! Gostaria de consultar o preço do produto: "+name);
+ window.open("https://wa.me/?text="+msg,"_blank");
+}
+render();
+</script>
+</body>
+</html>
