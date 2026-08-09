@@ -1,0 +1,15 @@
+VANILLA VOYAGE — SITE COM AS FOTOS
+
+1. Extraia este pacote.
+2. No GitHub, abra o repositório do site.
+3. Envie o arquivo index.html e a pasta img inteira.
+4. Confirme o commit.
+5. Abra o GitHub Pages e aguarde a atualização.
+
+A página já está com:
+- Vanilla Voyage
+- Perfumes Árabes
+- Cremes Corporais
+- Produtos Coreanos (em breve)
+- Fotos dos produtos
+- Preço em breve
