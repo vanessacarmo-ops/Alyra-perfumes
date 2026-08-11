@@ -470,26 +470,38 @@ function showCart() {
                         <div style="color:#d4af37;font-weight:bold;font-size:16px;">
                             ${item.name}
                         </div>
-                        <div style="margin-top:8px;color:#ccc;">
-                            Quantidade: ${item.quantity}
-                        </div>
-                        <div style="margin-top:5px;color:#999;font-size:13px;">
-                            Preço em breve
-                        </div>
-                    </div>
+                       <div style="margin-top:8px;color:#ccc;">
+  Quantidade:
+  <button onclick="changeQuantity(${index}, -1)"
+    style="background:#000;color:#d4af37;border:1px solid #d4af37;border-radius:5px;padding:3px 9px;cursor:pointer;">
+    −
+  </button>
 
-                    <button
-                        onclick="removeFromCart(${index})"
-                        style="
-                            background:#000;
-                            color:#d4af37;
-                            border:1px solid #d4af37;
-                            border-radius:6px;
-                            padding:6px 10px;
-                            cursor:pointer;
-                        ">
-                        Remover
-                    </button>
+  <strong style="margin:0 8px;color:#fff;">${item.quantity}</strong>
+
+  <button onclick="changeQuantity(${index}, 1)"
+    style="background:#000;color:#d4af37;border:1px solid #d4af37;border-radius:5px;padding:3px 9px;cursor:pointer;">
+    +
+  </button>
+</div>
+
+<div style="margin-top:5px;color:#999;font-size:13px;">
+  Preço em breve
+</div>
+</div>
+
+<button
+  onclick="removeFromCart(${index})"
+  style="
+    background:#000;
+    color:#d4af37;
+    border:1px solid #d4af37;
+    border-radius:6px;
+    padding:6px 10px;
+    cursor:pointer;
+  ">
+  Remover
+</button>
                 </div>
             `;
         });
@@ -536,7 +548,20 @@ function closeCart() {
     const modal = document.getElementById("cartModal");
     if (modal) modal.remove();
 }
+function changeQuantity(index, change) {
+  const item = cart[index];
 
+  if (!item) return;
+
+  item.quantity += change;
+
+  if (item.quantity <= 0) {
+    cart.splice(index, 1);
+  }
+
+  updateCart();
+  showCart();
+}
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCart();
