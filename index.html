@@ -441,7 +441,7 @@ function updateCart() {
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
-  cartButton.innerHTML = `🛒 Carrinho (${totalItems})`;
+cartButton.innerHTML = "Carrinho (" + totalItems + ")";
 }
 
 function showCart() {
