@@ -243,7 +243,7 @@ const items = [
 ["WhatsApp Image 2026-08-09 at 17.18.33.jpeg","Orientica Exclusive Dania","perfumes"],
 ["garden.jpg","Sabah Al Ward – Garden of Eden","perfumes"],
 
-["yara-nova.jpg","Yara – Lattafa","perfumes"],
+["yara-nova.jpg","Yara Tradicional","perfumes"],
 
 ["WhatsApp Image 2026-08-09 at 17.10.53.jpeg","Victoria – Lattafa","perfumes"],
 
@@ -312,6 +312,43 @@ subtitle.textContent =
 
 
 const list = items.filter(x => x[2] === cat);
+  const prices = {
+  "Ameerati": "R$ 180,00",
+  "Club de Nuit Intense - Armaf": "R$ 280,00",
+  "Asad Elixir - Masculino": "R$ 250,00",
+  "Oud for Glory - Lattafa": "R$ 210,00",
+  "Bade'e Al Oud - Amethyst": "R$ 210,00",
+  "Afeef - Lattafa": "R$ 420,00",
+  "Al Noble Ameer - Lattafa": "R$ 220,00",
+  "Al Noble Saffer - Lattafa": "R$ 220,00",
+  "Al Noble Wazeer - Lattafa": "R$ 220,00",
+  "Special Oud": "R$ 170,00",
+  "Ameerat Al Arab Prive Rose": "R$ 210,00",
+  "Asad Bourbon": "R$ 230,00",
+  "Yara Elixir - Feminino": "R$ 250,00",
+  "Yara Tradicional": "R$ 210,00",
+  "Sabah Al Ward": "R$ 170,00",
+  "Royal Amber": "ESGOTADO",
+  "Durrat": "R$ 170,00",
+  "Eclaire": "R$ 280,00",
+  "Kit Lattafa Yara": "R$ 260,00",
+  "Musamam": "R$ 330,00",
+  "Orientica Exclusive Dania": "R$ 500,00",
+  "Victoria - Lattafa": "R$ 280,00",
+  "Club de Nuit Maleka - Armaf": "R$ 310,00",
+  "Veneno Bianco - French Avenue": "R$ 350,00",
+  "Vanilla Voyage - Maison Asrar": "R$ 450,00",
+  "Marshmallow Blush - Paris Corner": "R$ 360,00",
+  "Azzam - Paris Corner": "R$ 390,00",
+  "Sabah Delilah": "R$ 250,00",
+  "Yara Elixir - Body Cream": "ESGOTADO",
+  "Sabah Al Ward - Body Cream": "R$ 150,00",
+  "Atheeri - Body Cream": "R$ 160,00",
+  "Creme Angel": "R$ 150,00",
+  "Queen of Arabia": "R$ 160,00",
+  "Dalal - Al Rehab": "ESGOTADO",
+  "Tharwah Gold - Lattafa": "ESGOTADO"
+};
 
 
 list.forEach(item => {
@@ -333,7 +370,7 @@ ${cat==="perfumes" ? "Perfume" : "Creme Corporal"}
 <h3>${item[1]}</h3>
 
 <div class="price">
-<span class="soon">Preço em breve</span>
+<span class="soon">${prices[item[1]] || "Preço em breve"}</span>
 </div>
 <button onclick='addToCart(${JSON.stringify(item[1])})'>
 Adicionar ao carrinho 🛒
