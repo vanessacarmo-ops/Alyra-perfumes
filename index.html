@@ -371,10 +371,10 @@ ${cat==="perfumes" ? "Perfume" : "Creme Corporal"}
 <h3>${item[1]}</h3>
 
 <div class="price">
-<span class="soon">${prices[item[1]] || "Preço em breve"}</span>
+<span class="soon">${prices[item[1].replace("–","-")] || "Preço em breve"}</span>
 </div>
 <button
- style="${prices[item[1]] === "ESGOTADO" ? "display:none;" : ""}"
+style="${prices[item[1].replace("–","-")] === "ESGOTADO" ? "display:none;" : ""}"
   onclick='addToCart(${JSON.stringify(item[1])})'>
 Adicionar ao carrinho 🛒
 </button>
