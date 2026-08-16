@@ -373,7 +373,9 @@ ${cat==="perfumes" ? "Perfume" : "Creme Corporal"}
 <div class="price">
 <span class="soon">${prices[item[1]] || "Preço em breve"}</span>
 </div>
-<button onclick='addToCart(${JSON.stringify(item[1])})'>
+<button
+ style="${prices[item[1]] === "ESGOTADO" ? "display:none;" : ""}"
+  onclick='addToCart(${JSON.stringify(item[1])})'>
 Adicionar ao carrinho 🛒
 </button>
 </div>
