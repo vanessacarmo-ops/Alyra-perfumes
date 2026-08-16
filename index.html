@@ -563,6 +563,23 @@ function showCart() {
                     ">
                     Continuar comprando
                 </button>
+                <button
+  onclick="sendWhatsAppOrder()"
+  style="
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    background:#25D366;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+  "
+>
+  Finalizar pedido pelo WhatsApp
+</button>
             </div>
         `;
     }
@@ -606,6 +623,23 @@ function removeFromCart(index) {
 
 updateCart();
 render("perfumes");
+  function sendWhatsAppOrder() {
+  if (cart.length === 0) {
+    alert("Seu carrinho está vazio.");
+    return;
+  }
+
+  let message = "Olá! Gostaria de fazer este pedido:%0A%0A";
+
+  cart.forEach((item) => {
+    message += "• " + item.name + " — Quantidade: " + item.quantity + "%0A";
+  });
+
+  message += "%0AGostaria de confirmar a disponibilidade e o valor total.";
+
+  const phone = "5541997138077";
+  window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
+}
 
 </script>
 
