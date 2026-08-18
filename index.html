@@ -388,7 +388,7 @@ ${cat==="perfumes" ? "Perfume" : "Creme Corporal"}
 </div>
 <button
 style="${prices[item[1]] === "ESGOTADO" && !(item[1] === "Queen of Arabia" && cat === "cremes") ? "display:none;" : ""}"
-onclick="addToCart(${JSON.stringify(item[1]).replace(/"/g, '&quot;')})">
+onclick="addToCart(this.dataset.product)" data-product="${item[1].replace(/'/g, "&#39;")}" >
 Adicionar ao carrinho 🛒
 </button>
 </div>
