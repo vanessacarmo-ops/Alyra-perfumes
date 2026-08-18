@@ -594,7 +594,7 @@ function showCart() {
   "
 >
   Finalizar pedido pelo WhatsApp
-  ${cart.length === 1 && cart[0].name === "Kit Bade'e Al Oud" && cart[0].quantity === 1 ? '<button onclick="window.open(\'https://mpago.la/1y79sXb\', \'_blank\')" style="width:100%;padding:14px;margin-top:10px;background:#009ee3;color:#fff;border:none;border-radius:8px;font-weight:bold;font-size:16px;cursor:pointer;">Pagar pelo Mercado Pago 💳</button>' : ""}
+  ${cart.length === 1 && cart[0].quantity === 1 && cart[0].name === "Kit Bade'e Al Oud" ? '<button onclick="window.open(\'https://mpago.la/1y79sXb\', \'_blank\')" style="width:100%;padding:14px;margin-top:10px;background:#009ee3;color:#fff;border:none;border-radius:8px;font-weight:bold;font-size:16px;cursor:pointer;">Pagar pelo Mercado Pago 💳</button>' : cart.length === 1 && cart[0].quantity === 1 && cart[0].name === "Asad Bourbon" ? '<button onclick="window.open(\'https://mpago.la/2eyppeY\', \'_blank\')" style="width:100%;padding:14px;margin-top:10px;background:#009ee3;color:#fff;border:none;border-radius:8px;font-weight:bold;font-size:16px;cursor:pointer;">Pagar pelo Mercado Pago 💳</button>' : ""}
 
             </div>
         `;
