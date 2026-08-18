@@ -651,6 +651,9 @@ render("perfumes");
   });
 
   message += "%0AGostaria de confirmar a disponibilidade e o valor total.";
+  if (cart.length === 1 && cart[0].name === "Kit Bade'e Al Oud" && cart[0].quantity === 1) {
+    message += "%0A%0APagamento pelo Mercado Pago:%0Ahttps://mpago.la/1y79sXb";
+}
 
   const phone = "5541997138077";
   window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
