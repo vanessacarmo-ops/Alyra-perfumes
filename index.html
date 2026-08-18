@@ -374,7 +374,8 @@ ${cat==="perfumes" ? "Perfume" : "Creme Corporal"}
 
 <div class="price">
 
-<span class="soon">${item[1] === "Queen of Arabia" && cat === "cremes" ? "R$ 160,00" : (prices[item[1]] === "ESGOTADO" ? "ESGOTADO" : (prices[item[1]] || "Preço em breve"))}</span>
+<span class="soon">${item[1] === "Queen of Arabia" && cat === "cremes" ? "R$ 160,00" : item[1] === "Sabah Al Ward - Body Cream" && cat === "cremes" ? "R$ 150,00" : (prices[item[1]] === "ESGOTADO" ? "ESGOTADO" : (prices[item[1]] || "Preço em breve"))}</span>
+
 
 
 </div>
